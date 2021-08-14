@@ -1,0 +1,12 @@
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\bin\Debug\WordPad.exe.config
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\bin\Debug\WordPad.exe
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\bin\Debug\WordPad.pdb
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\bin\Debug\Guna.UI.dll
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.csproj.AssemblyReference.cache
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.Form1.resources
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.Properties.Resources.resources
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.csproj.GenerateResource.cache
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.csproj.CoreCompileInputs.cache
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.csproj.CopyComplete
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.exe
+C:\Users\Amiraslan\source\repos\WordPad\WordPad\obj\Debug\WordPad.pdb
