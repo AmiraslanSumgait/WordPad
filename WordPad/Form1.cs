@@ -20,6 +20,7 @@ namespace WordPad
         private void Form1_Load(object sender, EventArgs e)
         {
             FontFamily[] ffArray = FontFamily.Families;
+           
             int[] sizes = new int[] { 8,9,10,11,12,14,16,18,20,22,24,26,28,36,48,72 };
             foreach (var font in ffArray)
             {
@@ -35,11 +36,13 @@ namespace WordPad
                     cbx_Color.Items.Add(prop.Name);
                
             }
+            cbx_Color.SelectedIndex = 8;
         }
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             richTextBox.SelectionColor = Color.FromName(cbx_Color.SelectedItem.ToString());
+           //Update in night
         }
     }
 }
