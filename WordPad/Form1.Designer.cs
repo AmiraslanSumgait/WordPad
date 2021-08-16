@@ -51,7 +51,7 @@ namespace WordPad
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(51, 31);
+            this.gunaLabel1.Location = new System.Drawing.Point(47, 77);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(58, 30);
             this.gunaLabel1.TabIndex = 0;
@@ -61,7 +61,7 @@ namespace WordPad
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(244, 31);
+            this.gunaLabel2.Location = new System.Drawing.Point(242, 75);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(52, 30);
             this.gunaLabel2.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace WordPad
             // gunaLabel3
             // 
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.Location = new System.Drawing.Point(387, 31);
+            this.gunaLabel3.Location = new System.Drawing.Point(388, 75);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(112, 30);
             this.gunaLabel3.TabIndex = 2;
@@ -80,7 +80,7 @@ namespace WordPad
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(569, 31);
+            this.gunaLabel4.Location = new System.Drawing.Point(569, 75);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(117, 30);
             this.gunaLabel4.TabIndex = 3;
@@ -88,9 +88,9 @@ namespace WordPad
             // 
             // richTextBox
             // 
-            this.richTextBox.Location = new System.Drawing.Point(12, 124);
+            this.richTextBox.Location = new System.Drawing.Point(12, 162);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(1033, 605);
+            this.richTextBox.Size = new System.Drawing.Size(1033, 567);
             this.richTextBox.TabIndex = 4;
             this.richTextBox.Text = "";
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
@@ -98,7 +98,7 @@ namespace WordPad
             // cbx_TextSize
             // 
             this.cbx_TextSize.FormattingEnabled = true;
-            this.cbx_TextSize.Location = new System.Drawing.Point(236, 67);
+            this.cbx_TextSize.Location = new System.Drawing.Point(236, 110);
             this.cbx_TextSize.Name = "cbx_TextSize";
             this.cbx_TextSize.Size = new System.Drawing.Size(69, 21);
             this.cbx_TextSize.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace WordPad
             this.cbx_Fonts.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbx_Fonts.ForeColor = System.Drawing.Color.Black;
             this.cbx_Fonts.FormattingEnabled = true;
-            this.cbx_Fonts.Location = new System.Drawing.Point(27, 64);
+            this.cbx_Fonts.Location = new System.Drawing.Point(28, 110);
             this.cbx_Fonts.Name = "cbx_Fonts";
             this.cbx_Fonts.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbx_Fonts.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -127,7 +127,7 @@ namespace WordPad
             // 
             this.gunaLabel5.AutoSize = true;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel5.Location = new System.Drawing.Point(737, 31);
+            this.gunaLabel5.Location = new System.Drawing.Point(731, 75);
             this.gunaLabel5.Name = "gunaLabel5";
             this.gunaLabel5.Size = new System.Drawing.Size(66, 30);
             this.gunaLabel5.TabIndex = 13;
@@ -144,13 +144,12 @@ namespace WordPad
             this.cbx_Color.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbx_Color.ForeColor = System.Drawing.Color.Black;
             this.cbx_Color.FormattingEnabled = true;
-            this.cbx_Color.Location = new System.Drawing.Point(727, 64);
+            this.cbx_Color.Location = new System.Drawing.Point(726, 110);
             this.cbx_Color.Name = "cbx_Color";
             this.cbx_Color.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbx_Color.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbx_Color.Size = new System.Drawing.Size(94, 26);
             this.cbx_Color.TabIndex = 14;
-            this.cbx_Color.SelectedIndexChanged += new System.EventHandler(this.cbx_Color_SelectedIndexChanged);
             // 
             // btn_RightAlign
             // 
@@ -170,7 +169,7 @@ namespace WordPad
             this.btn_RightAlign.Image = null;
             this.btn_RightAlign.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_RightAlign.LineColor = System.Drawing.Color.White;
-            this.btn_RightAlign.Location = new System.Drawing.Point(660, 64);
+            this.btn_RightAlign.Location = new System.Drawing.Point(660, 110);
             this.btn_RightAlign.Name = "btn_RightAlign";
             this.btn_RightAlign.OnHoverBaseColor = System.Drawing.Color.Red;
             this.btn_RightAlign.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -202,7 +201,7 @@ namespace WordPad
             this.btn_CenterAlign.Image = null;
             this.btn_CenterAlign.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_CenterAlign.LineColor = System.Drawing.Color.White;
-            this.btn_CenterAlign.Location = new System.Drawing.Point(617, 64);
+            this.btn_CenterAlign.Location = new System.Drawing.Point(617, 110);
             this.btn_CenterAlign.Name = "btn_CenterAlign";
             this.btn_CenterAlign.OnHoverBaseColor = System.Drawing.Color.Red;
             this.btn_CenterAlign.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -234,7 +233,7 @@ namespace WordPad
             this.btn_LeftAlign.Image = null;
             this.btn_LeftAlign.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_LeftAlign.LineColor = System.Drawing.Color.White;
-            this.btn_LeftAlign.Location = new System.Drawing.Point(574, 64);
+            this.btn_LeftAlign.Location = new System.Drawing.Point(574, 110);
             this.btn_LeftAlign.Name = "btn_LeftAlign";
             this.btn_LeftAlign.OnHoverBaseColor = System.Drawing.Color.Red;
             this.btn_LeftAlign.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -266,7 +265,7 @@ namespace WordPad
             this.btn_Bold.Image = global::WordPad.Properties.Resources.Black_Bold;
             this.btn_Bold.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_Bold.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btn_Bold.Location = new System.Drawing.Point(383, 64);
+            this.btn_Bold.Location = new System.Drawing.Point(381, 108);
             this.btn_Bold.Name = "btn_Bold";
             this.btn_Bold.OnHoverBaseColor = System.Drawing.Color.Gray;
             this.btn_Bold.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -296,7 +295,7 @@ namespace WordPad
             this.btn_Underline.Image = global::WordPad.Properties.Resources.Black_Undirline;
             this.btn_Underline.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_Underline.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btn_Underline.Location = new System.Drawing.Point(419, 64);
+            this.btn_Underline.Location = new System.Drawing.Point(420, 108);
             this.btn_Underline.Name = "btn_Underline";
             this.btn_Underline.OnHoverBaseColor = System.Drawing.Color.Gray;
             this.btn_Underline.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -326,7 +325,7 @@ namespace WordPad
             this.btn_Italic.Image = global::WordPad.Properties.Resources.Black_Italic;
             this.btn_Italic.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_Italic.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btn_Italic.Location = new System.Drawing.Point(456, 64);
+            this.btn_Italic.Location = new System.Drawing.Point(457, 108);
             this.btn_Italic.Name = "btn_Italic";
             this.btn_Italic.OnHoverBaseColor = System.Drawing.Color.Gray;
             this.btn_Italic.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -336,12 +335,13 @@ namespace WordPad
             this.btn_Italic.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Italic.Size = new System.Drawing.Size(43, 39);
             this.btn_Italic.TabIndex = 20;
+            this.btn_Italic.Click += new System.EventHandler(this.btn_Italic_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1212, 741);
+            this.ClientSize = new System.Drawing.Size(1133, 741);
             this.Controls.Add(this.btn_Italic);
             this.Controls.Add(this.btn_Underline);
             this.Controls.Add(this.btn_Bold);

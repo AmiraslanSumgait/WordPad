@@ -16,8 +16,9 @@ namespace WordPad
         {
             InitializeComponent();
         }
-        public bool BoldChecked { get; set; }
-        public bool UnderlineChecked { get; set; }
+        private bool BoldChecked = false;
+        public bool UnderlineChecked = false;
+        public bool ItalicChecked = false;
         private void Form1_Load(object sender, EventArgs e)
         {
             FontFamily[] ffArray = FontFamily.Families;
@@ -38,6 +39,8 @@ namespace WordPad
                
             }
             cbx_Color.SelectedIndex = 8;
+            cbx_Fonts.SelectedIndex = 0;
+            cbx_TextSize.SelectedIndex = 0;
         }
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
@@ -51,6 +54,7 @@ namespace WordPad
         {
             cbx_TextSize.SelectedIndex = 0;
             richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
+            FontConfiguration();
         }
         private void AllignText(object sender, EventArgs e)
         {
@@ -73,46 +77,77 @@ namespace WordPad
         private void cbx_TextSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
+            FontConfiguration();
         }
 
         private void cbx_Color_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
+        private void ButtonConfiguration(  ref bool check, ref Guna.UI.WinForms.GunaAdvenceButton fontButton)
+        {
+            if (check)
+            {
+                check = false;
+                fontButton.BaseColor = Color.Transparent;
+            }
+            else
+            {
+                check = true;
+                fontButton.BaseColor = Color.FromArgb(135, 206, 250);
+            }
+        }
+        private void FontConfiguration()
+        {
+            if (BoldChecked&&ItalicChecked&&UnderlineChecked)
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold|FontStyle.Italic|FontStyle.Underline);
+            }
+            else if (BoldChecked && ItalicChecked )
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold | FontStyle.Italic);
+            }
+            else if (BoldChecked && UnderlineChecked)
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold | FontStyle.Underline);
+            }
+            else if (UnderlineChecked && ItalicChecked)
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Italic | FontStyle.Underline);
+            }
+            else if (BoldChecked)
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold);
+            }
+            else if (ItalicChecked)
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Italic);
+            }
+            else if (UnderlineChecked)
+            {
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Underline);
+            }
+            else
+            {
+                richTextBox.SelectionFont=new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
+               // MessageBox.Show(richTextBox.SelectionFont.ToString());
+            }
+        }
         private void btn_Bold_Click(object sender, EventArgs e)
         {
-            if (BoldChecked)
-            {
-                BoldChecked = false;
-                btn_Bold.BaseColor = Color.Transparent;
-            }
-            else
-            {
-                BoldChecked = true;
-                btn_Bold.BaseColor = Color.FromArgb(135, 206, 250);
-            }
-           
-            Font boldUnderFont = new Font(richTextBox.SelectionFont, FontStyle.Bold);
-            richTextBox.SelectionFont = boldUnderFont;
+            ButtonConfiguration( ref BoldChecked, ref btn_Bold);
+            FontConfiguration();
         }
-
         private void btn_Underline_Click(object sender, EventArgs e)
         {
-            if (UnderlineChecked)
-            {
-                
-                UnderlineChecked = false;
-                btn_Underline.BaseColor = Color.Transparent;
-            }
-            else
-            {
-                Font boldUnderFont = new Font(richTextBox.SelectionFont, FontStyle.Underline);
-                richTextBox.SelectionFont = boldUnderFont;
-                UnderlineChecked = true;
-                btn_Underline.BaseColor = Color.FromArgb(135, 206, 250);
-            }
-          
+            ButtonConfiguration(ref UnderlineChecked, ref btn_Underline);
+            FontConfiguration();
+        }
+
+        private void btn_Italic_Click(object sender, EventArgs e)
+        {
+            ButtonConfiguration(ref ItalicChecked, ref btn_Italic);
+            FontConfiguration();
         }
     }
 }
