@@ -41,8 +41,37 @@ namespace WordPad
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
+
             richTextBox.SelectionColor = Color.FromName(cbx_Color.SelectedItem.ToString());
            //Update in night
+        }
+
+        private void cbx_Fonts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbx_TextSize.SelectedIndex = 0;
+            richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
+        }
+        private void AllignText(object sender, EventArgs e)
+        {
+            if (sender is Guna.UI.WinForms.GunaAdvenceButton  btn)
+            {
+                switch (btn.Text)
+                {
+                    case "L":
+                        richTextBox.SelectionAlignment = HorizontalAlignment.Left;
+                        break;
+                    case "C":
+                        richTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                        break;
+                    case "R":
+                        richTextBox.SelectionAlignment = HorizontalAlignment.Right;
+                        break;
+                }
+            }
+        }
+        private void cbx_TextSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
         }
     }
 }
