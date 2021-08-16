@@ -39,21 +39,12 @@ namespace WordPad
             this.cbx_Fonts = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.cbx_Color = new Guna.UI.WinForms.GunaComboBox();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_RightAlign = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_CenterAlign = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_LeftAlign = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.picBox_Italic = new Guna.UI.WinForms.GunaPictureBox();
-            this.picBox_Underline = new Guna.UI.WinForms.GunaPictureBox();
-            this.picBox_Bold = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Italic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Underline)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Bold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).BeginInit();
+            this.btn_Bold = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btn_Underline = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btn_Italic = new Guna.UI.WinForms.GunaAdvenceButton();
             this.SuspendLayout();
             // 
             // gunaLabel1
@@ -97,7 +88,7 @@ namespace WordPad
             // 
             // richTextBox
             // 
-            this.richTextBox.Location = new System.Drawing.Point(12, 115);
+            this.richTextBox.Location = new System.Drawing.Point(12, 124);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(1033, 605);
             this.richTextBox.TabIndex = 4;
@@ -159,17 +150,7 @@ namespace WordPad
             this.cbx_Color.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbx_Color.Size = new System.Drawing.Size(94, 26);
             this.cbx_Color.TabIndex = 14;
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::WordPad.Properties.Resources.White_Undirline;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(866, 52);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(24, 25);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 15;
-            this.gunaPictureBox1.TabStop = false;
+            this.cbx_Color.SelectedIndexChanged += new System.EventHandler(this.cbx_Color_SelectedIndexChanged);
             // 
             // btn_RightAlign
             // 
@@ -267,77 +248,108 @@ namespace WordPad
             this.btn_LeftAlign.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_LeftAlign.Click += new System.EventHandler(this.AllignText);
             // 
-            // picBox_Italic
+            // btn_Bold
             // 
-            this.picBox_Italic.BaseColor = System.Drawing.Color.White;
-            this.picBox_Italic.Image = global::WordPad.Properties.Resources.Black_Italic;
-            this.picBox_Italic.Location = new System.Drawing.Point(452, 67);
-            this.picBox_Italic.Name = "picBox_Italic";
-            this.picBox_Italic.Size = new System.Drawing.Size(24, 25);
-            this.picBox_Italic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_Italic.TabIndex = 9;
-            this.picBox_Italic.TabStop = false;
+            this.btn_Bold.AnimationHoverSpeed = 0.07F;
+            this.btn_Bold.AnimationSpeed = 0.03F;
+            this.btn_Bold.BaseColor = System.Drawing.SystemColors.Control;
+            this.btn_Bold.BorderColor = System.Drawing.Color.Black;
+            this.btn_Bold.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btn_Bold.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btn_Bold.CheckedForeColor = System.Drawing.Color.White;
+            this.btn_Bold.CheckedImage = global::WordPad.Properties.Resources.Black_Bold;
+            this.btn_Bold.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btn_Bold.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Bold.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Bold.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Bold.ForeColor = System.Drawing.Color.White;
+            this.btn_Bold.Image = global::WordPad.Properties.Resources.Black_Bold;
+            this.btn_Bold.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Bold.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Bold.Location = new System.Drawing.Point(383, 64);
+            this.btn_Bold.Name = "btn_Bold";
+            this.btn_Bold.OnHoverBaseColor = System.Drawing.Color.Gray;
+            this.btn_Bold.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Bold.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Bold.OnHoverImage = null;
+            this.btn_Bold.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Bold.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Bold.Size = new System.Drawing.Size(43, 39);
+            this.btn_Bold.TabIndex = 18;
+            this.btn_Bold.Click += new System.EventHandler(this.btn_Bold_Click);
             // 
-            // picBox_Underline
+            // btn_Underline
             // 
-            this.picBox_Underline.BaseColor = System.Drawing.Color.White;
-            this.picBox_Underline.Image = global::WordPad.Properties.Resources.Black_Undirline;
-            this.picBox_Underline.Location = new System.Drawing.Point(422, 67);
-            this.picBox_Underline.Name = "picBox_Underline";
-            this.picBox_Underline.Size = new System.Drawing.Size(24, 25);
-            this.picBox_Underline.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_Underline.TabIndex = 8;
-            this.picBox_Underline.TabStop = false;
+            this.btn_Underline.AnimationHoverSpeed = 0.07F;
+            this.btn_Underline.AnimationSpeed = 0.03F;
+            this.btn_Underline.BaseColor = System.Drawing.SystemColors.Control;
+            this.btn_Underline.BorderColor = System.Drawing.Color.Black;
+            this.btn_Underline.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btn_Underline.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btn_Underline.CheckedForeColor = System.Drawing.Color.White;
+            this.btn_Underline.CheckedImage = global::WordPad.Properties.Resources.Black_Undirline;
+            this.btn_Underline.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btn_Underline.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Underline.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Underline.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Underline.ForeColor = System.Drawing.Color.White;
+            this.btn_Underline.Image = global::WordPad.Properties.Resources.Black_Undirline;
+            this.btn_Underline.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Underline.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Underline.Location = new System.Drawing.Point(419, 64);
+            this.btn_Underline.Name = "btn_Underline";
+            this.btn_Underline.OnHoverBaseColor = System.Drawing.Color.Gray;
+            this.btn_Underline.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Underline.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Underline.OnHoverImage = null;
+            this.btn_Underline.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Underline.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Underline.Size = new System.Drawing.Size(43, 39);
+            this.btn_Underline.TabIndex = 19;
+            this.btn_Underline.Click += new System.EventHandler(this.btn_Underline_Click);
             // 
-            // picBox_Bold
+            // btn_Italic
             // 
-            this.picBox_Bold.BaseColor = System.Drawing.Color.White;
-            this.picBox_Bold.Image = global::WordPad.Properties.Resources.Black_Bold;
-            this.picBox_Bold.Location = new System.Drawing.Point(392, 67);
-            this.picBox_Bold.Name = "picBox_Bold";
-            this.picBox_Bold.Size = new System.Drawing.Size(24, 25);
-            this.picBox_Bold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_Bold.TabIndex = 7;
-            this.picBox_Bold.TabStop = false;
-            // 
-            // gunaPictureBox2
-            // 
-            this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox2.Image = global::WordPad.Properties.Resources.Black_Italic;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(912, 52);
-            this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(24, 25);
-            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox2.TabIndex = 16;
-            this.gunaPictureBox2.TabStop = false;
-            // 
-            // gunaPictureBox3
-            // 
-            this.gunaPictureBox3.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox3.Image = global::WordPad.Properties.Resources.Black_Italic;
-            this.gunaPictureBox3.Location = new System.Drawing.Point(957, 52);
-            this.gunaPictureBox3.Name = "gunaPictureBox3";
-            this.gunaPictureBox3.Size = new System.Drawing.Size(24, 25);
-            this.gunaPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox3.TabIndex = 17;
-            this.gunaPictureBox3.TabStop = false;
+            this.btn_Italic.AnimationHoverSpeed = 0.07F;
+            this.btn_Italic.AnimationSpeed = 0.03F;
+            this.btn_Italic.BaseColor = System.Drawing.SystemColors.Control;
+            this.btn_Italic.BorderColor = System.Drawing.Color.Black;
+            this.btn_Italic.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btn_Italic.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btn_Italic.CheckedForeColor = System.Drawing.Color.White;
+            this.btn_Italic.CheckedImage = global::WordPad.Properties.Resources.Black_Italic;
+            this.btn_Italic.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btn_Italic.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Italic.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Italic.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Italic.ForeColor = System.Drawing.Color.White;
+            this.btn_Italic.Image = global::WordPad.Properties.Resources.Black_Italic;
+            this.btn_Italic.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Italic.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Italic.Location = new System.Drawing.Point(456, 64);
+            this.btn_Italic.Name = "btn_Italic";
+            this.btn_Italic.OnHoverBaseColor = System.Drawing.Color.Gray;
+            this.btn_Italic.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Italic.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Italic.OnHoverImage = null;
+            this.btn_Italic.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Italic.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Italic.Size = new System.Drawing.Size(43, 39);
+            this.btn_Italic.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 741);
-            this.Controls.Add(this.gunaPictureBox3);
-            this.Controls.Add(this.gunaPictureBox2);
-            this.Controls.Add(this.gunaPictureBox1);
+            this.Controls.Add(this.btn_Italic);
+            this.Controls.Add(this.btn_Underline);
+            this.Controls.Add(this.btn_Bold);
             this.Controls.Add(this.cbx_Color);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.btn_RightAlign);
             this.Controls.Add(this.btn_CenterAlign);
             this.Controls.Add(this.btn_LeftAlign);
-            this.Controls.Add(this.picBox_Italic);
-            this.Controls.Add(this.picBox_Underline);
-            this.Controls.Add(this.picBox_Bold);
             this.Controls.Add(this.cbx_Fonts);
             this.Controls.Add(this.cbx_TextSize);
             this.Controls.Add(this.richTextBox);
@@ -348,12 +360,6 @@ namespace WordPad
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Italic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Underline)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Bold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,17 +374,14 @@ namespace WordPad
         private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.ComboBox cbx_TextSize;
         private Guna.UI.WinForms.GunaComboBox cbx_Fonts;
-        private Guna.UI.WinForms.GunaPictureBox picBox_Bold;
-        private Guna.UI.WinForms.GunaPictureBox picBox_Underline;
-        private Guna.UI.WinForms.GunaPictureBox picBox_Italic;
         private Guna.UI.WinForms.GunaAdvenceButton btn_LeftAlign;
         private Guna.UI.WinForms.GunaAdvenceButton btn_CenterAlign;
         private Guna.UI.WinForms.GunaAdvenceButton btn_RightAlign;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaComboBox cbx_Color;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox3;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_Bold;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_Underline;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_Italic;
     }
 }
 
