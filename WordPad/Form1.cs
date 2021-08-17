@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,8 @@ namespace WordPad
         private void Form1_Load(object sender, EventArgs e)
         {
             FontFamily[] ffArray = FontFamily.Families;
-           
-            int[] sizes = new int[] { 8,9,10,11,12,14,16,18,20,22,24,26,28,36,48,72 };
+
+            int[] sizes = new int[] { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
             foreach (var font in ffArray)
             {
                 cbx_Fonts.Items.Add(font.Name);
@@ -36,7 +37,7 @@ namespace WordPad
             {
                 if (prop.PropertyType.FullName == "System.Drawing.Color")
                     cbx_Color.Items.Add(prop.Name);
-               
+
             }
             cbx_Color.SelectedIndex = 8;
             cbx_Fonts.SelectedIndex = 0;
@@ -47,7 +48,6 @@ namespace WordPad
         {
 
             richTextBox.SelectionColor = Color.FromName(cbx_Color.SelectedItem.ToString());
-           //Update in night
         }
 
         private void cbx_Fonts_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace WordPad
         }
         private void AllignText(object sender, EventArgs e)
         {
-            if (sender is Guna.UI.WinForms.GunaAdvenceButton  btn)
+            if (sender is Guna.UI.WinForms.GunaAdvenceButton btn)
             {
                 switch (btn.Text)
                 {
@@ -84,7 +84,7 @@ namespace WordPad
         {
 
         }
-        private void ButtonConfiguration(  ref bool check, ref Guna.UI.WinForms.GunaAdvenceButton fontButton)
+        private void ButtonConfiguration(ref bool check, ref Guna.UI.WinForms.GunaAdvenceButton fontButton)
         {
             if (check)
             {
@@ -99,11 +99,11 @@ namespace WordPad
         }
         private void FontConfiguration()
         {
-            if (BoldChecked&&ItalicChecked&&UnderlineChecked)
+            if (BoldChecked && ItalicChecked && UnderlineChecked)
             {
-                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold|FontStyle.Italic|FontStyle.Underline);
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
             }
-            else if (BoldChecked && ItalicChecked )
+            else if (BoldChecked && ItalicChecked)
             {
                 richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, FontStyle.Bold | FontStyle.Italic);
             }
@@ -129,13 +129,13 @@ namespace WordPad
             }
             else
             {
-                richTextBox.SelectionFont=new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
-               // MessageBox.Show(richTextBox.SelectionFont.ToString());
+                richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
+                // MessageBox.Show(richTextBox.SelectionFont.ToString());
             }
         }
         private void btn_Bold_Click(object sender, EventArgs e)
         {
-            ButtonConfiguration( ref BoldChecked, ref btn_Bold);
+            ButtonConfiguration(ref BoldChecked, ref btn_Bold);
             FontConfiguration();
         }
         private void btn_Underline_Click(object sender, EventArgs e)
@@ -148,6 +148,33 @@ namespace WordPad
         {
             ButtonConfiguration(ref ItalicChecked, ref btn_Italic);
             FontConfiguration();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(openFileDialog1.FileName))
+                {
+                    sw.Write(richTextBox.Text);
+                }
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "All files|*.*|Text files|*.txt";
+            openFileDialog1.FilterIndex = 2;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamReader sr = new StreamReader(openFileDialog1.FileName))
+                {
+                    richTextBox.Text = sr.ReadToEnd();
+                }
+
+            }
+
         }
     }
 }
