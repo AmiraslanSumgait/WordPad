@@ -47,7 +47,6 @@ namespace WordPad
             this.btn_Italic = new Guna.UI.WinForms.GunaAdvenceButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -180,7 +179,7 @@ namespace WordPad
             this.btn_RightAlign.LineColor = System.Drawing.Color.White;
             this.btn_RightAlign.Location = new System.Drawing.Point(660, 110);
             this.btn_RightAlign.Name = "btn_RightAlign";
-            this.btn_RightAlign.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.btn_RightAlign.OnHoverBaseColor = System.Drawing.Color.LightSkyBlue;
             this.btn_RightAlign.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.btn_RightAlign.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_RightAlign.OnHoverImage = null;
@@ -212,7 +211,7 @@ namespace WordPad
             this.btn_CenterAlign.LineColor = System.Drawing.Color.White;
             this.btn_CenterAlign.Location = new System.Drawing.Point(617, 110);
             this.btn_CenterAlign.Name = "btn_CenterAlign";
-            this.btn_CenterAlign.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.btn_CenterAlign.OnHoverBaseColor = System.Drawing.Color.LightSkyBlue;
             this.btn_CenterAlign.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.btn_CenterAlign.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_CenterAlign.OnHoverImage = null;
@@ -244,7 +243,7 @@ namespace WordPad
             this.btn_LeftAlign.LineColor = System.Drawing.Color.White;
             this.btn_LeftAlign.Location = new System.Drawing.Point(574, 110);
             this.btn_LeftAlign.Name = "btn_LeftAlign";
-            this.btn_LeftAlign.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.btn_LeftAlign.OnHoverBaseColor = System.Drawing.Color.LightSkyBlue;
             this.btn_LeftAlign.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.btn_LeftAlign.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_LeftAlign.OnHoverImage = null;
@@ -359,19 +358,12 @@ namespace WordPad
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
@@ -392,6 +384,7 @@ namespace WordPad
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -448,7 +441,6 @@ namespace WordPad
         private Guna.UI.WinForms.GunaAdvenceButton btn_Italic;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;

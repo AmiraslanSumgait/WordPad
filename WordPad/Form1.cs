@@ -22,6 +22,7 @@ namespace WordPad
         public bool ItalicChecked = false;
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             FontFamily[] ffArray = FontFamily.Families;
 
             int[] sizes = new int[] { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
@@ -40,8 +41,24 @@ namespace WordPad
 
             }
             cbx_Color.SelectedIndex = 8;
-            cbx_Fonts.SelectedIndex = 0;
             cbx_TextSize.SelectedIndex = 0;
+            richTextBox.EnableAutoDragDrop = true;
+            richTextBox.DragDrop += RichTextBox_DragDrop;
+        }
+
+        private void RichTextBox_DragDrop(object sender, DragEventArgs e)
+        {
+            object fileName = e.Data.GetData("FileDrop");
+            if (fileName != null)
+            {
+                var list = fileName as string[];
+
+                if (list != null && !string.IsNullOrWhiteSpace(list[0]))
+                {
+                    richTextBox.Clear();
+                    richTextBox.LoadFile(list[0], RichTextBoxStreamType.PlainText);
+                }
+            }
         }
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
@@ -49,10 +66,10 @@ namespace WordPad
 
             richTextBox.SelectionColor = Color.FromName(cbx_Color.SelectedItem.ToString());
         }
-
+        
         private void cbx_Fonts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbx_TextSize.SelectedIndex = 0;
+            //cbx_TextSize.SelectedIndex = 0;
             richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
             FontConfiguration();
         }
@@ -78,11 +95,6 @@ namespace WordPad
         {
             richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
             FontConfiguration();
-        }
-
-        private void cbx_Color_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
         private void ButtonConfiguration(ref bool check, ref Guna.UI.WinForms.GunaAdvenceButton fontButton)
         {
@@ -130,7 +142,6 @@ namespace WordPad
             else
             {
                 richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
-                // MessageBox.Show(richTextBox.SelectionFont.ToString());
             }
         }
         private void btn_Bold_Click(object sender, EventArgs e)
@@ -152,13 +163,17 @@ namespace WordPad
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            SaveFileDialog save = new SaveFileDialog();
+            save.FileName = "DefaultOutputName.txt";
+            save.Filter = "Text File | *.txt";
+            if (save.ShowDialog() == DialogResult.OK)
             {
-                using (StreamWriter sw = new StreamWriter(openFileDialog1.FileName))
-                {
-                    sw.Write(richTextBox.Text);
-                }
-            }
+                StreamWriter writer = new StreamWriter(save.OpenFile());
+                writer.WriteLine(richTextBox.Text);
+                writer.Dispose();
+                writer.Close();
+                MessageBox.Show("File succesfully saved", "Done", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }            
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,7 +189,11 @@ namespace WordPad
                 }
 
             }
+        }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
