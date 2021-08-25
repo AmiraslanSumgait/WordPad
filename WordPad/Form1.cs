@@ -22,9 +22,7 @@ namespace WordPad
         public bool ItalicChecked = false;
         private void Form1_Load(object sender, EventArgs e)
         {
-           
             FontFamily[] ffArray = FontFamily.Families;
-
             int[] sizes = new int[] { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
             foreach (var font in ffArray)
             {
@@ -45,7 +43,6 @@ namespace WordPad
             richTextBox.EnableAutoDragDrop = true;
             richTextBox.DragDrop += RichTextBox_DragDrop;
         }
-
         private void RichTextBox_DragDrop(object sender, DragEventArgs e)
         {
             object fileName = e.Data.GetData("FileDrop");
@@ -60,16 +57,13 @@ namespace WordPad
                 }
             }
         }
-
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
 
             richTextBox.SelectionColor = Color.FromName(cbx_Color.SelectedItem.ToString());
         }
-        
         private void cbx_Fonts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cbx_TextSize.SelectedIndex = 0;
             richTextBox.SelectionFont = new Font(cbx_Fonts.Text, int.Parse(cbx_TextSize.Text));
             FontConfiguration();
         }
@@ -190,7 +184,6 @@ namespace WordPad
 
             }
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
